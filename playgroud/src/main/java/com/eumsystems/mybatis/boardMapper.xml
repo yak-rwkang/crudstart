@@ -13,6 +13,9 @@
 	</select>
 	
 	<insert id="boardInsert" parameterType="com.eumsystems.board.BoardDTO">
-	 insert into board values(num = #{num},name = #{name},pwd= #{pwd},email=#{email},subject=#{subject},ipaddr=#{ipaddr},hitcount=#{hitcount})
+	 insert into board (num,name,pwd,content,email,subject,ipaddr,hitcount) values (#{num}, #{name}, #{pwd},#{content},#{email}, #{subject},'127.0.0.1','0')
 	</insert>
+	<select id="boardCount" resultType="Integer">
+	  select count(*) from board
+	</select>
 </mapper>

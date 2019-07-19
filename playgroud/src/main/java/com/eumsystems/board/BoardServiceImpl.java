@@ -27,6 +27,12 @@ public class BoardServiceImpl  implements BoardService{
 	@Override
 	public void doCreate(BoardDTO dto) {
 		
+		int num= boardDao.doCount();
+		dto.setNum(num +1);
+		System.out.println("ÃÑ °¹¼ö : " + num);
+		System.out.println("ÃÑ °¹¼ö : " + num);
+		System.out.println("ÃÑ °¹¼ö : " + num);
+		System.out.println("ÃÑ °¹¼ö : " + num);
 		boardDao.doCreated(dto);
 	}
 

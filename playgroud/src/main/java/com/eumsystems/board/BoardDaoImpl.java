@@ -44,4 +44,10 @@ public class BoardDaoImpl  implements BoardDao {
 		st.insert(boardMapper + ".boardInsert",dto);
 	}
 
+	@Override
+	public int doCount() {
+		int num =st.selectOne(boardMapper + ".boardCount");
+		return num;
+	}
+
 }

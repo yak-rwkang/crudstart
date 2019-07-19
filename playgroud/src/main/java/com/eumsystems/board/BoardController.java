@@ -56,16 +56,24 @@ public class BoardController {
 		mav.setViewName("board/article");
 		mav.addObject("dto", dto);
 		return mav;
-	}@RequestMapping(value = "/boardCreate.do")
+	}
+	@RequestMapping(value = "/boardCreate.do")
 	public ModelAndView create(HttpServletRequest req, BoardDTO dto) throws Exception{
-		log.debug("사용자 입력값" + dto);
-		
-		
-		boardService.doCreate(dto);
-		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/created");
+		return mav;
+	}
+	@RequestMapping(value = "/boardCreate_ok.do")
+	public ModelAndView created(HttpServletRequest req, BoardDTO dto) throws Exception{
+		log.debug("사용자 입력값" + dto);
+		log.debug("사용자 입력값" + dto.getContent());
+		log.debug("사용자 입력값" + dto.getEmail());
+		log.debug("사용자 입력값" + dto.getIpaddr());
+		log.debug("사용자 입력값" + dto.getNum());
 		
+		ModelAndView mav = new ModelAndView();
+		boardService.doCreate(dto);
+		mav.setViewName("redirect:/boardList.do");
 		return mav;
 	}
 }

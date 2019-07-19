@@ -10,4 +10,6 @@ public interface BoardDao {
 	public BoardDTO getArticle(String num) throws Exception;
 
 	public void doCreated(BoardDTO dto);
+	
+	public int doCount();
 }
