@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eumsystems.mybatis.boardMapper">
+	
+	<select id="boardList" resultType="com.eumsystems.board.BoardDTO">
+	  select num,name,pwd,email,subject,ipaddr,hitcount from board
+	</select>
+	
+	<select id="boardArticle" parameterType="String" resultType="com.eumsystems.board.BoardDTO">
+	  select num,name,pwd,email,subject,ipaddr,hitcount from board where num = #{num}
+	</select>
+	
+	<insert id="boardInsert" parameterType="com.eumsystems.board.BoardDTO">
+	 insert into board values(num = #{num},name = #{name},pwd= #{pwd},email=#{email},subject=#{subject},ipaddr=#{ipaddr},hitcount=#{hitcount})
+	</insert>
+</mapper>
